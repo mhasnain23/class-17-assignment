@@ -18,6 +18,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { toast } from "sonner";
 import { UserPlus } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 /**
  * Form schema with validation rules
@@ -57,6 +58,8 @@ const SignupForm = () => {
     },
   });
 
+  const router = useRouter();
+
   /**
    * Handle form submission
    */
@@ -64,6 +67,7 @@ const SignupForm = () => {
     toast.success("Account created successfully!");
     console.log(values);
     form.reset();
+    router.push("/success");
   }
 
   return (
